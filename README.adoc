@@ -1,0 +1,40 @@
+= Triage UX Kit
+:description: Shared triage UX for Antora Supplemental maint tools (groupings, mailto, CI trigger, sticky-issue helpers).
+:page-orig-author: Ryan Johnson
+:page-last-edited: 2026-09-27
+
+**Triage UX Kit** factors shared triage patterns out of link-validator / asciidoc-link-validator so orphan-finder, nav-drift, stale-page, and friends embed one UX.
+
+Support: support@devcentr.org
+
+== Install
+
+[source,bash]
+----
+pnpm add -D github:antora-supplemental/triage-ux-kit#v0.1.0
+----
+
+Primary distribution is the GitHub SemVer URL pin. No npm publish required.
+
+== API
+
+[source,js]
+----
+const {
+  buildGroupings,
+  buildTriageActions,
+  buildTriageHtml,
+  buildStickyIssuePlan,
+  assets,
+} = require('@antora-supplemental/triage-ux-kit')
+----
+
+* `buildGroupings(rows)` — byDestination / bySourcePage / byStatus / byHost + default heuristic
+* `buildTriageActions(report, { ciTrigger, toolName })` — mailto + copy payloads (no secrets)
+* `buildTriageHtml({ title, toolName, ciTrigger, ... })` — static HTML shell
+* `buildStickyIssuePlan(report, opts)` / `planStickyIssueActions` — GitHub sticky-issue writeback helpers
+* `assets.cssPath` / `assets.jsPath` — optional CSS/JS other tools can copy/embed
+
+== Security
+
+Static HTML must **never** embed GitHub tokens. CI trigger config stores only a public `dispatchUrl` / thin proxy + optional `statusUrl` for polling.

@@ -1,0 +1,47 @@
+{
+  "name": "@antora-supplemental/triage-ux-kit",
+  "version": "0.1.0",
+  "description": "Shared triage UX kit: groupings, encoded mailto+Copy, CI trigger+poll, sticky-issue writeback helpers for Antora Supplemental maint tools",
+  "license": "MIT",
+  "author": "Ryan Johnson (https://github.com/AMDphreak)",
+  "keywords": [
+    "antora",
+    "triage",
+    "ux",
+    "mailto",
+    "ci-trigger"
+  ],
+  "homepage": "https://github.com/antora-supplemental/triage-ux-kit",
+  "bugs": {
+    "url": "https://github.com/antora-supplemental/triage-ux-kit/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antora-supplemental/triage-ux-kit.git"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json",
+    "./groupings": "./lib/groupings.js",
+    "./triage-actions": "./lib/triage-actions.js",
+    "./sticky-issue": "./lib/sticky-issue.js",
+    "./triage-page": "./lib/triage-page.js",
+    "./assets/css": "./assets/css/triage-ux.css",
+    "./assets/js": "./assets/js/triage-ux.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "packageManager": "pnpm@10.33.0",
+  "files": [
+    "lib/**/*",
+    "assets/**/*",
+    "README.adoc",
+    "CHANGELOG.adoc",
+    "LICENSE"
+  ]
+}
